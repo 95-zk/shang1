@@ -11,8 +11,8 @@
       </div>
       <el-table :data="tableData" border style="width: 100%" align="center">
         <el-table-column prop="date" label="日期" width="333" align="center"></el-table-column>
-        <el-table-column prop="name" label="姓名" width="333" align="center"></el-table-column>
-        <el-table-column prop="address" label="地址" align="center"></el-table-column>
+        <el-table-column prop="name" label="IP" width="333" align="center"></el-table-column>
+        <el-table-column prop="address" label="地区" align="center"></el-table-column>
       </el-table>
       <div class="block">
           <!-- <span class="demonstration">直接前往</span> -->
@@ -126,9 +126,7 @@ export default {
 };
 </script>
 <style scoped>
-.aa{
 
-}
 .block{
     float:right;
     padding: 5px 8px;

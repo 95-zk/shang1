@@ -43,6 +43,10 @@ export default new Router({
         {
           path:'/zonglantongji',
           component: ()=> import( './views/Zonglantongji.vue')
+        },
+        {
+          path:'/kefutongji',
+          component: ()=> import( './views/Kefutongji.vue')
         }
       ]
     }

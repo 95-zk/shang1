@@ -29,7 +29,7 @@
         <div class="you2" v-show="tab==2">
           <p class="ming">统计分析</p>
           <router-link class="ming1" tag="p" to="/zonglantongji">总览统计</router-link>
-          <p class="ming1">客服统计</p>
+          <router-link class="ming1" tag="p" to="/kefutongji">客服统计</router-link>
           <p class="ming1">留言统计</p>
           <p class="ming1">机器人统计</p>
         </div>

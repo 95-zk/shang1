@@ -9,12 +9,29 @@
           在线服务数据
           <span>?</span>
         </p>
+        <div class="you11">
+          <el-button :plain="true" @click="open" class="a1">导出数据</el-button>
+          <el-button :plain="true" @click="open" class="a3">昨天</el-button>
+          <el-button :plain="true" @click="open" class="a2">近7天</el-button>
+          <el-button :plain="true" @click="open" class="a1">最近30天</el-button>
+          <el-date-picker
+            v-model="value2"
+            type="monthrange"
+            align="right"
+            unlink-panels
+            range-separator="至"
+            start-placeholder="开始月份"
+            end-placeholder="结束月份"
+            :picker-options="pickerOptions2"
+            size="mini"
+          ></el-date-picker>
+        </div>
       </div>
       <div class="tou2-ti">
         <div class="shang">
           <p>
             <span>会话量</span>
-            <br/>
+            <br />
             <span>200</span>
           </p>
         </div>
@@ -27,11 +44,11 @@
         <div class="shang">
           <p>
             <span>总消息量</span>
-            <br/>
+            <br />
             <span>5000</span>
           </p>
         </div>
-        <div >
+        <div>
           <p class="p1">答问比 &nbsp;&nbsp; --</p>
           <p class="p2">30s应答率 &nbsp;&nbsp; --</p>
         </div>
@@ -44,7 +61,7 @@
             <span>--</span>
           </p>
         </div>
-        <div >
+        <div>
           <p class="p1">平均首次响应时间 &nbsp;&nbsp; --</p>
           <p class="p2">平均响应时间 &nbsp;&nbsp; --</p>
         </div>
@@ -66,7 +83,7 @@
     <div class="tou3">
       <!-- <div class="tou3-tou">
         <p>在线服务数据趋势</p>
-      </div> -->
+      </div>-->
       <div class="tou2-tou">
         <p>
           会话量
@@ -74,6 +91,7 @@
         </p>
       </div>
       <div class="you-shang">
+        <!-- <span class="active">aaa</span> -->
         <el-date-picker
           v-model="value2"
           align="right"
@@ -90,11 +108,24 @@
       />
     </div>
     <div class="tou4">
-      <div class="tou4-tou">
-        <p>在线服务数据趋势</p>
+      <div class="tou2-tou">
+        <p>
+          会话量
+          <span>?</span>
+        </p>
       </div>
+      <div class="you-shang">
+        <!-- <span class="active">aaa</span> -->
+        <el-date-picker
+          v-model="value2"
+          align="right"
+          type="date"
+          placeholder="选择日期"
+          :picker-options="pickerOptions"
+        ></el-date-picker>
+      </div>
+      <img src="../assets/99[X]Q)@PHD[R72NU6PINAM.png" width="1060" />
       <div style="margin-left: 15px"></div>
-      <div class="block"></div>
     </div>
   </div>
 </template>
@@ -132,12 +163,71 @@ export default {
         ]
       },
       value1: "",
+      value2: "",
+      pickerOptions2: {
+        shortcuts: [
+          {
+            text: "本月",
+            onClick(picker) {
+              picker.$emit("pick", [new Date(), new Date()]);
+            }
+          },
+          {
+            text: "今年至今",
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date(new Date().getFullYear(), 0);
+              picker.$emit("pick", [start, end]);
+            }
+          },
+          {
+            text: "最近六个月",
+            onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setMonth(start.getMonth() - 6);
+              picker.$emit("pick", [start, end]);
+            }
+          }
+        ]
+      },
+      value1: "",
       value2: ""
     };
   }
+  // methods: {
+  //     open() {
+  //       this.$message('这是一条消息提示');
+  //     },
+  //   }
 };
 </script>
 <style  scoped>
+.a1 {
+  border: 1px solid rgb(184, 180, 180);
+  padding: 3px 6px;
+  margin-right: 10px;
+  margin-left: 0px;
+  cursor: pointer;
+}
+.a2 {
+  border: 1px solid rgb(184, 180, 180);
+  padding: 3px 16px;
+  cursor: pointer;
+  margin-left: 0px;
+}
+.a3 {
+  border: 1px solid rgb(184, 180, 180);
+  padding: 3px 25px;
+  margin-left: 10px;
+  margin-left: 0px;
+  cursor: pointer;
+}
+.you11 {
+  float: right;
+  margin-right: 10px;
+  margin-top: -24px;
+}
 .block {
   margin-left: 500px;
   margin-top: 20px;
@@ -181,7 +271,7 @@ export default {
   margin-left: 10px;
   padding-top: 7px;
 }
-.tou2-tou span {
+.tou2-tou p span {
   background-color: rgb(238, 142, 16);
   border-radius: 50%;
   padding: 0px 6px;
