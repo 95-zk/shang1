@@ -47,6 +47,22 @@ export default new Router({
         {
           path:'/kefutongji',
           component: ()=> import( './views/Kefutongji.vue')
+        },
+        {
+          path:'/liuyantongji',
+          component: ()=> import( './views/Liuyantongji.vue')
+        },
+        {
+          path:'/jiqiren',
+          component: ()=> import( './views/Jiqiren.vue')
+        },
+        {
+          path:'/liebiao',
+          component: ()=> import( './views/Kefuliebiao.vue')
+        },
+        {
+          path:'/xiaozhu',
+          component: ()=> import( './views/Kefuxiaozhu.vue')
         }
       ]
     }

@@ -30,13 +30,13 @@
           <p class="ming">统计分析</p>
           <router-link class="ming1" tag="p" to="/zonglantongji">总览统计</router-link>
           <router-link class="ming1" tag="p" to="/kefutongji">客服统计</router-link>
-          <p class="ming1">留言统计</p>
-          <p class="ming1">机器人统计</p>
+          <router-link class="ming1" tag="p" to="/liuyantongji">留言统计</router-link>
+          <router-link class="ming1" tag="p" to="/jiqiren">机器人统计</router-link>
         </div>
         <div class="you2" v-show="tab==3">
           <p class="ming">客服管理</p>
-          <p class="ming1">客服列表</p>
-          <p class="ming1">客服小组</p>
+          <router-link class="ming1" tag="p" to="/liebiao">客服列表</router-link>
+          <router-link class="ming1" tag="p" to="/xiaozhu">客服小组</router-link>
         </div>
         <div class="you2" v-show="tab==4">
           <p class="ming">历史管理</p>

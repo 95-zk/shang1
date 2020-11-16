@@ -29,7 +29,7 @@
       </div>
       <div class="xia">
         <div>
-          <input type="checkbox" v-model="quan" /> 全选
+          <input type="checkbox" v-model="quan" @click="toggleSelection(tableData)"/> 全选
           <el-button type="text" @click="open2">批量删除</el-button>
           <!-- <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">全选</el-checkbox> -->
         </div>
@@ -189,7 +189,7 @@ export default {
           name3: "admin"
         }
       ],
-      quan: true
+      quan: false
       // aria-hidden:false
       // aaa:'',
       // selection:true
@@ -197,6 +197,19 @@ export default {
   },
   dianji() {},
   methods: {
+    toggleSelection(rows) {
+        if (rows) {
+          rows.forEach(row => {
+            this.$refs.multipleTable.toggleRowSelection(row);
+          });
+        } else {
+          this.$refs.multipleTable.clearSelection();
+        }
+      },
+      handleSelectionChange(val) {
+        this.multipleSelection = val;
+      },
+    
     open() {
       this.$confirm("是否永久删除该文件?", "提示", {
         confirmButtonText: "确定",
