@@ -40,15 +40,15 @@
         </div>
         <div class="you2" v-show="tab==4">
           <p class="ming">历史管理</p>
-          <p class="ming1">历史列表</p>
+          <router-link class="ming1" tag="p" to="/lishiliebiao">历史列表</router-link>
         </div>
         <div class="you2" v-show="tab==5">
           <p class="ming">客户管理</p>
-          <p class="ming1">客户列表</p>
+          <router-link class="ming1" tag="p" to="/kehu">客户列表</router-link>
         </div>
         <div class="you2" v-show="tab==6">
           <p class="ming">公告管理</p>
-          <p class="ming1">公告列表</p>
+          <router-link class="ming1" tag="p" to="/gonggao">公告列表</router-link>
         </div>
         <div class="you2" v-show="tab==7">
           <p class="ming">知识管理</p>

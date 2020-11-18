@@ -63,6 +63,18 @@ export default new Router({
         {
           path:'/xiaozhu',
           component: ()=> import( './views/Kefuxiaozhu.vue')
+        },
+        {
+          path:'/lishiliebiao',
+          component: ()=> import( './views/Lishiliebiao.vue')
+        },
+        {
+          path:'/kehu',
+          component: ()=> import( './views/Kehu.vue')
+        },
+        {
+          path:'/gonggao',
+          component: ()=> import( './views/Gonggao.vue')
         }
       ]
     }
