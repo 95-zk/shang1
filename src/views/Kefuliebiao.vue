@@ -157,7 +157,7 @@
             </el-button>
             <el-button type="text" @click="open">删除</el-button>
           </el-table-column>
-        </el-table> -->
+        </el-table>-->
         <el-table
           ref="multipleTable"
           :data="tableData"
@@ -166,21 +166,21 @@
           @selection-change="handleSelectionChange"
         >
           <el-table-column type="selection" width="55"></el-table-column>
-           <el-table-column prop="name1" label="昵称" align="center"></el-table-column>
+          <el-table-column prop="name1" label="昵称" align="center"></el-table-column>
           <el-table-column prop="date" label="姓名" align="center"></el-table-column>
           <el-table-column prop="name3" label="账号" align="center"></el-table-column>
           <el-table-column prop="name4" label="手机号" align="center"></el-table-column>
           <el-table-column prop="name5" label="客服分组" align="center"></el-table-column>
-          <el-table-column label="账户启用状态" align="center">
-            <el-tooltip :content="'Switch value: ' + value" placement="top">
+          <el-table-column label="账户启用状态" align="center" >
+            <template scope="scope">
               <el-switch
-                v-model="value"
+                v-model="scope.row.value"
                 active-color="#13ce66"
                 inactive-color="#ff4949"
                 active-value="100"
                 inactive-value="0"
               ></el-switch>
-            </el-tooltip>
+              </template>
           </el-table-column>
           <el-table-column label="操作" width="120" align="center">
             <!-- <span class="chakan" @click="chakan()">查看</span> -->
@@ -193,7 +193,7 @@
       </div>
       <div class="xia">
         <div class="ab">
-          <input type="checkbox" v-model="quan" @click="toggleSelection(tableData)"/> 全选
+          <input type="checkbox" v-model="quan" @click="toggleSelection(tableData)" /> 全选
           <el-button type="text" @click="open2">批量删除</el-button>
         </div>
         <div class="block">
@@ -213,13 +213,12 @@
         <p class="el-icon-s-fold">筛选查询</p>
         
     </div>-->
-    
   </div>
 </template>
 <script>
 export default {
   methods: {
-      open2() {
+    open2() {
       this.aaa = true;
       if (this.quan == true) {
         this.$confirm("是否永久删除全部文件?", "提示", {
@@ -262,26 +261,24 @@ export default {
           });
         });
     },
-   toggleSelection(rows) {
-        if (rows) {
-          rows.forEach(row => {
-            this.$refs.multipleTable.toggleRowSelection(row);
-          });
-        } else {
-          this.$refs.multipleTable.clearSelection();
-        }
-      },
-      handleSelectionChange(val) {
-        this.multipleSelection = val;
-      },
-    
+    toggleSelection(rows) {
+      if (rows) {
+        rows.forEach(row => {
+          this.$refs.multipleTable.toggleRowSelection(row);
+        });
+      } else {
+        this.$refs.multipleTable.clearSelection();
+      }
+    },
+    handleSelectionChange(val) {
+      this.multipleSelection = val;
+    }
   },
   data() {
     return {
-        
-        quan: false,
-      //   value123: true,
-       value: '100',
+      quan: false,
+        // value: true,
+      value: "100",
       select: "",
       select1: "",
       dialogFormVisible: false,
@@ -296,7 +293,7 @@ export default {
         resource: "",
         desc: ""
       },
-      
+
       formLabelWidth: "120px",
       tableData: [
         {
@@ -305,7 +302,8 @@ export default {
           name3: "fuhao",
           name4: "159****5311",
           name5: "客服1",
-          value: '100',
+          value: "100",
+          // value:true,
         },
         {
           name1: "符号",
@@ -313,74 +311,73 @@ export default {
           name3: "fuhao",
           name4: "159****5311",
           name5: "客服1",
-          value: '0',
+          value: "0"
         },
         {
           name1: "符号",
           date: "符号",
           name3: "fuhao",
           name4: "159****5311",
-          name5: "客服1",
+          name5: "客服1"
         },
         {
           name1: "符号",
           date: "符号",
           name3: "fuhao",
           name4: "159****5311",
-          name5: "客服1",
+          name5: "客服1"
         },
         {
           name1: "符号",
           date: "符号",
           name3: "fuhao",
           name4: "159****5311",
-          name5: "客服1",
+          name5: "客服1"
         },
         {
           name1: "符号",
           date: "符号",
           name3: "fuhao",
           name4: "159****5311",
-          name5: "客服1",
+          name5: "客服1"
         },
         {
           name1: "符号",
           date: "符号",
           name3: "fuhao",
           name4: "159****5311",
-          name5: "客服1",
+          name5: "客服1"
         },
         {
           name1: "符号",
           date: "符号",
           name3: "fuhao",
           name4: "159****5311",
-          name5: "客服1",
+          name5: "客服1"
         },
         {
           name1: "符号",
           date: "符号",
           name3: "fuhao",
           name4: "159****5311",
-          name5: "客服1",
+          name5: "客服1"
         },
         {
           name1: "符号",
           date: "符号",
           name3: "fuhao",
           name4: "159****5311",
-          name5: "客服1",
+          name5: "客服1"
         },
         {
           name1: "符号",
           date: "符号",
           name3: "fuhao",
           name4: "159****5311",
-          name5: "客服1",
-        },
-
+          name5: "客服1"
+        }
       ]
-    //   is-checked: false,
+      //   is-checked: false,
     };
   }
 };

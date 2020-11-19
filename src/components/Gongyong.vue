@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <div class="add">
-      
+
       <div class="tou">
         <img src="../assets/2.png" />
         <span>WEB在线客服管理系统</span>
@@ -52,17 +52,23 @@
         </div>
         <div class="you2" v-show="tab==7">
           <p class="ming">知识管理</p>
-          <p class="ming1">知识列表</p>
-          <p class="ming1">发布知识</p>
-          <p class="ming1">分类管理</p>
+          <router-link class="ming1" tag="p" to="/zhishiliebiao">知识列表</router-link>
+          <router-link class="ming1" tag="p" to="/fabuzhishi">发布知识</router-link>
+          <router-link class="ming1" tag="p" to="/fenleiguanli">分类管理</router-link>
         </div>
         <div class="you2" v-show="tab==8">
           <p class="ming">对话平台</p>
+          <router-link class="ming1" tag="p" to="/dangqianhuihua">当前会话</router-link>
+          <router-link class="ming1" tag="p" to="/">呼叫中心</router-link>
+          <router-link class="ming1" tag="p" to="/">留言管理</router-link>
+          <router-link class="ming1" tag="p" to="/">工单管理</router-link>
+          <router-link class="ming1" tag="p" to="/">发布工单</router-link>
+          <!-- <p class="ming">对话平台</p>
           <p class="ming1">当前会话</p>
           <p class="ming1">呼叫中心</p>
           <p class="ming1">留言管理</p>
           <p class="ming1">工单管理</p>
-          <p class="ming1">发布工单</p>
+          <p class="ming1">发布工单</p> -->
         </div>
         <div class="you2" v-show="tab==9">
           <p class="ming">权限管理</p>

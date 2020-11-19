@@ -232,7 +232,7 @@ export default {
     margin: 0 auto;
     margin-top: -20px;
   text-align: center;   
-  width: 450px;;
+  width: 450px;
 }
 .biaoti {
   border: 1px solid rgb(210, 211, 212);
